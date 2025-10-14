@@ -30,13 +30,13 @@ const captureRateData = [
 
 export function DataVisualization() {
   return (
-    <section className="min-h-screen bg-gray-50 py-20 px-6">
+    <section className="min-h-screen bg-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="inline-block mb-4 px-3 py-1 border border-red-600 bg-red-600/5">
             <span className="font-mono text-xs tracking-wider text-red-600">REAL-TIME ANALYTICS</span>
           </div>
-          <h2 className="text-5xl mb-4 text-black" style={{ fontWeight: 700 }}>
+          <h2 className="text-5xl mb-4 text-black" style={{ fontWeight: 400 }}>
             System Performance Metrics
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl">

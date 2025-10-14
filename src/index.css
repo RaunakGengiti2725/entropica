@@ -1124,3 +1124,9 @@ html {
     opacity: .5;
   }
 }
+
+/* Readex Pro global font override */
+body {
+  font-family: 'Readex Pro', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+}

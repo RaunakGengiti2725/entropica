@@ -1,17 +1,14 @@
 import { CarbonCaptureSchematic } from './CarbonCaptureSchematic';
-import { BlueprintBackground } from './BlueprintBackground';
 
 export function ProcessFlowSection() {
   return (
-    <section className="relative min-h-screen py-20 px-6 bg-gradient-to-b from-white to-gray-50">
-      <BlueprintBackground />
-      
+    <section className="relative min-h-screen py-20 px-6 bg-white">
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="mb-12">
           <div className="inline-block border border-black px-4 py-2 bg-white mb-4">
             <span className="font-mono text-xs tracking-widest">PROCESS SCHEMATIC</span>
           </div>
-          <h2 className="text-black mb-4" style={{ fontSize: '3.5rem', fontWeight: 700 }}>
+          <h2 className="text-black mb-4" style={{ fontSize: '3.5rem', fontWeight: 400 }}>
             Carbon Capture Flow Diagram
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl">

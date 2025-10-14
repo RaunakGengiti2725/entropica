@@ -34,7 +34,7 @@ export function Navbar() {
               onClick={() => scrollToSection('hero')}
               className="border-2 border-black px-4 py-2 bg-white hover:bg-gray-50 transition-colors"
             >
-              <span className="font-mono tracking-widest text-sm" style={{ fontWeight: 700 }}>
+              <span className="tracking-widest text-sm" style={{ fontWeight: 700 }}>
                 ENTROPICA SYSTEMS
               </span>
             </button>
@@ -42,25 +42,19 @@ export function Navbar() {
             <div className="hidden md:flex items-center gap-1">
               <button
                 onClick={() => scrollToSection('process')}
-                className="px-4 py-2 font-mono text-xs tracking-wider hover:text-red-600 transition-colors"
+                className="px-4 py-2 text-xs tracking-wider hover:text-red-600 transition-colors"
               >
                 PROCESS
               </button>
               <button
-                onClick={() => scrollToSection('neural')}
-                className="px-4 py-2 font-mono text-xs tracking-wider hover:text-red-600 transition-colors"
-              >
-                NEURAL NETWORK
-              </button>
-              <button
                 onClick={() => scrollToSection('specs')}
-                className="px-4 py-2 font-mono text-xs tracking-wider hover:text-red-600 transition-colors"
+                className="px-4 py-2 text-xs tracking-wider hover:text-red-600 transition-colors"
               >
                 TECHNICAL SPECS
               </button>
               <button
                 onClick={() => scrollToSection('data')}
-                className="px-4 py-2 font-mono text-xs tracking-wider hover:text-red-600 transition-colors"
+                className="px-4 py-2 text-xs tracking-wider hover:text-red-600 transition-colors"
               >
                 DATA VISUALIZATION
               </button>
@@ -70,10 +64,10 @@ export function Navbar() {
           <div className="flex items-center gap-4">
             <div className="hidden md:flex items-center gap-2 border border-gray-300 px-3 py-1">
               <div className="w-2 h-2 bg-red-600 animate-pulse"></div>
-              <span className="font-mono text-xs text-gray-600">ONLINE</span>
+              <span className="text-xs text-gray-600">ONLINE</span>
             </div>
 
-            <button className="px-6 py-2 bg-black text-white border-2 border-black hover:bg-gray-900 transition-colors font-mono text-xs tracking-wider">
+            <button className="px-6 py-2 bg-black text-white border-2 border-black hover:bg-gray-900 transition-colors text-xs tracking-wider">
               ACCESS SYSTEM
             </button>
           </div>

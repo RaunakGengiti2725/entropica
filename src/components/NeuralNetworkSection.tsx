@@ -1,11 +1,9 @@
+import React from 'react';
 import { NeuralWave3D } from './NeuralWave3D';
-import { BlueprintBackground } from './BlueprintBackground';
 
 export function NeuralNetworkSection() {
   return (
-    <section className="relative min-h-screen py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
-      <BlueprintBackground />
-      
+    <section className="relative min-h-screen py-20 px-6 bg-white">
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="mb-12">
           <div className="inline-block border border-red-600 px-4 py-2 bg-white mb-4">
