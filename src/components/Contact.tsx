@@ -1,211 +1,299 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from './ui/form';
+import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+  SelectValue,
+} from './ui/select';
+import { Checkbox } from './ui/checkbox';
+import { Button } from './ui/button';
+
+type ContactFormValues = {
+  firstName: string;
+  lastName: string;
+  workEmail: string;
+  company: string;
+  phone?: string;
+  industry?: string;
+  projectStage?: string;
+  timeframe?: string;
+  message: string;
+  consent: boolean;
+};
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    workEmail: '',
-    company: '',
-    jobTitle: '',
-    phoneNumber: '',
-    country: '',
-    numberOfUsers: '',
-    message: ''
+  const [submitted, setSubmitted] = useState(false);
+
+  const form = useForm<ContactFormValues>({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      workEmail: '',
+      company: '',
+      phone: '',
+      industry: undefined,
+      projectStage: undefined,
+      timeframe: undefined,
+      message: '',
+      consent: false,
+    },
+    mode: 'onBlur',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const onSubmit = (values: ContactFormValues) => {
+    // Placeholder for integration (email, CRM, or API endpoint)
+    // For now, we simulate success and show a confirmation state
+    // eslint-disable-next-line no-console
+    console.log('Contact submission', values);
+    setSubmitted(true);
   };
 
   return (
-    <div className="min-h-screen bg-white p-8 md:p-16">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-8">
+    <div className="bg-white">
+      <div className="max-w-5xl mx-auto px-6 py-24">
+        <div className="mb-10">
           <span className="inline-block px-4 py-2 border border-[#ef4444] text-[#ef4444] text-sm tracking-wider">
-            CONTACT REQUEST
+            CONTACT SALES
           </span>
-        </div>
-
-        <div className="mb-4">
-          <h1 className="text-black">Get In Touch</h1>
-        </div>
-
-        <div className="mb-12">
-          <p className="text-gray-600 max-w-3xl">
-            Fill out the form below and our team will get back to you within 24-48 hours to discuss your requirements and next steps.
+          <h1 className="mt-6 text-3xl md:text-4xl font-bold">Tell us about your project</h1>
+          <p className="mt-3 text-gray-600 font-mono text-sm leading-relaxed">
+            We partner with industrial teams to design and optimize carbon capture systems.
+            Share a few details and our team will follow up within 2 business days.
           </p>
         </div>
 
-        <div>
-          <div className="border border-gray-300 p-8">
-            <h2 className="text-black mb-8">Submit Request</h2>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-gray-700 mb-2 text-sm tracking-wide">
-                    FIRST NAME* 
-                  </label>
-                  <input
-                    type="text"
+        {submitted ? (
+          <div className="border-2 border-gray-800 bg-gray-50 p-6">
+            <h2 className="text-xl font-semibold">Thanks — we received your request.</h2>
+            <p className="mt-2 text-gray-600 font-mono text-sm">
+              Our team will review your information and get back to you shortly.
+            </p>
+          </div>
+        ) : (
+          <div className="border-2 border-gray-800 p-6">
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
                     name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors"
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>First name <span className="text-red-600" aria-hidden="true">*</span></FormLabel>
+                        <FormControl>
+                          <Input placeholder="Jane" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
-                
-                <div>
-                  <label className="block text-gray-700 mb-2 text-sm tracking-wide">
-                    LAST NAME* 
-                  </label>
-                  <input
-                    type="text"
+
+                  <FormField
+                    control={form.control}
                     name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors"
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Last name <span className="text-red-600" aria-hidden="true">*</span></FormLabel>
+                        <FormControl>
+                          <Input placeholder="Doe" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
-              </div>
 
-              <div>
-                <label className="block text-gray-700 mb-2 text-sm tracking-wide">
-                  WORK EMAIL* 
-                </label>
-                <input
-                  type="email"
-                  name="workEmail"
-                  value={formData.workEmail}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors"
-                />
-              </div>
+                  <FormField
+                    control={form.control}
+                    name="workEmail"
+                    rules={{
+                      required: true,
+                      pattern: {
+                        value: /.+@.+\..+/, // basic email format
+                        message: 'Enter a valid email',
+                      },
+                    }}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Work email <span className="text-red-600" aria-hidden="true">*</span></FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="jane@company.com" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-gray-700 mb-2 text-sm tracking-wide">
-                    COMPANY* 
-                  </label>
-                  <input
-                    type="text"
+                  <FormField
+                    control={form.control}
                     name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors"
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Company <span className="text-red-600" aria-hidden="true">*</span></FormLabel>
+                        <FormControl>
+                          <Input placeholder="Acme Industrial" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Phone (optional)</FormLabel>
+                        <FormControl>
+                          <Input type="tel" placeholder="+1 (555) 123-4567" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="industry"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Industry</FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select industry" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="cement">Cement</SelectItem>
+                            <SelectItem value="steel">Steel</SelectItem>
+                            <SelectItem value="chemicals">Chemicals</SelectItem>
+                            <SelectItem value="power">Power Generation</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
                 </div>
-                
-                <div>
-                  <label className="block text-gray-700 mb-2 text-sm tracking-wide">
-                    JOB TITLE* 
-                  </label>
-                  <input
-                    type="text"
-                    name="jobTitle"
-                    value={formData.jobTitle}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors"
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="projectStage"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Project stage</FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select stage" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="exploration">Exploration</SelectItem>
+                            <SelectItem value="feasibility">Feasibility / Study</SelectItem>
+                            <SelectItem value="pilot">Pilot</SelectItem>
+                            <SelectItem value="deployment">Deployment</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="timeframe"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Timeframe</FormLabel>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select timeframe" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="<3mo">Under 3 months</SelectItem>
+                            <SelectItem value="3-6mo">3–6 months</SelectItem>
+                            <SelectItem value=">6mo">6+ months</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-gray-700 mb-2 text-sm tracking-wide">
-                  PHONE NUMBER* 
-                </label>
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-700 mb-2 text-sm tracking-wide">
-                  COUNTRY* 
-                </label>
-                <select
-                  name="country"
-                  value={formData.country}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724%27 height=%2724%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000000%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpath d=%27m6 9 6 6 6-6%27/%3e%3c/svg%3e')] bg-[length:1.25rem] bg-[center_right_0.5rem] bg-no-repeat"
-                >
-                  <option value="">Select...</option>
-                  <option value="us">United States</option>
-                  <option value="uk">United Kingdom</option>
-                  <option value="ca">Canada</option>
-                  <option value="au">Australia</option>
-                  <option value="de">Germany</option>
-                  <option value="fr">France</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-gray-700 mb-2 text-sm tracking-wide">
-                  MESSAGE
-                </label>
-                <textarea
+                <FormField
+                  control={form.control}
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors resize-none"
+                  rules={{ required: true }}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>How can we help? <span className="text-red-600" aria-hidden="true">*</span></FormLabel>
+                      <FormControl>
+                        <Textarea rows={6} placeholder="Describe your use case, KPIs, constraints, or timeline" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
 
-              <button
-                type="submit"
-                className="w-full bg-[#ef4444] text-white py-3 px-6 hover:bg-[#dc2626] transition-colors font-mono tracking-wide"
-              >
-                SUBMIT REQUEST
-              </button>
+                <FormField
+                  control={form.control}
+                  name="consent"
+                  rules={{ required: true }}
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className="flex items-start gap-3">
+                        <FormControl>
+                          <Checkbox
+                            checked={!!field.value}
+                            onCheckedChange={(checked) => field.onChange(Boolean(checked))}
+                          />
+                        </FormControl>
+                        <div>
+                          <FormLabel className="m-0">I agree to be contacted <span className="text-red-600" aria-hidden="true">*</span></FormLabel>
+                          <p className="text-gray-500 font-mono text-xs mt-1">
+                            We will only use your information to respond to your inquiry.
+                          </p>
+                        </div>
+                      </div>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
 
-              <p className="text-gray-500 text-sm font-mono">
-                By submitting this form, you agree to our{' '}
-                <a href="#" className="text-black underline hover:text-[#ef4444] transition-colors">
-                  Privacy Policy
-                </a>
-              </p>
-            </form>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs text-gray-500">Response within 2 business days</span>
+                  <Button type="submit" className="px-6">
+                    Submit request
+                  </Button>
+                </div>
+              </form>
+            </Form>
           </div>
-        </div>
-
-        <div className="mt-12 pt-8 border-t border-gray-300">
-          <div className="flex flex-wrap gap-8 text-gray-600 font-mono text-sm">
-            <div>
-              <span className="text-gray-400">Looking for support?</span>{' '}
-              <a href="#" className="text-black hover:text-[#ef4444] transition-colors underline">
-                Visit our help center
-              </a>
-            </div>
-            <div>
-              <span className="text-gray-400">Academic inquiry?</span>{' '}
-              <a href="#" className="text-black hover:text-[#ef4444] transition-colors underline">
-                Special pricing available
-              </a>
-            </div>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
 }
+
+
