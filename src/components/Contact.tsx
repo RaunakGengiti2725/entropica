@@ -1,40 +1,24 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-export function Contact() {
+export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
+    firstName: '',
+    lastName: '',
+    workEmail: '',
+    company: '',
+    jobTitle: '',
+    phoneNumber: '',
+    country: '',
+    numberOfUsers: '',
     message: ''
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      
-      // Reset form after success
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
-        });
-        setSubmitStatus('idle');
-      }, 3000);
-    }, 1000);
+    console.log('Form submitted:', formData);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -42,109 +26,186 @@ export function Contact() {
   };
 
   return (
-    <section className="relative min-h-screen bg-white text-black py-20 px-6">
-      <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-16">
-          <div className="inline-block border border-red-600 px-4 py-2 bg-red-600/5 mb-4">
-            <span className="font-mono text-xs tracking-widest text-red-600">CONTACT US</span>
-          </div>
-          <h1 className="mb-4 text-black" style={{ fontSize: '3.5rem', fontWeight: 400 }}>
-            Let's Optimize Together
-          </h1>
-          <p className="text-xl text-gray-700 max-w-3xl">
-            Ready to revolutionize your thermal processes? Connect with our team of experts to discuss how our physics-informed neural networks can transform your operations.
+    <div className="min-h-screen bg-white p-8 md:p-16">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-8">
+          <span className="inline-block px-4 py-2 border border-[#ef4444] text-[#ef4444] text-sm tracking-wider">
+            CONTACT REQUEST
+          </span>
+        </div>
+
+        <div className="mb-4">
+          <h1 className="text-black">Get In Touch</h1>
+        </div>
+
+        <div className="mb-12">
+          <p className="text-gray-600 max-w-3xl">
+            Fill out the form below and our team will get back to you within 24-48 hours to discuss your requirements and next steps.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          {/* Contact Form - Full Width */}
-          <div className="border-2 border-gray-300 bg-white p-8">
-            <h2 className="mb-6 pb-4 border-b border-gray-200" style={{ fontSize: '1.5rem', fontWeight: 700 }}>
-              Send Us a Message
-            </h2>
+        <div>
+          <div className="border border-gray-300 p-8">
+            <h2 className="text-black mb-8">Submit Request</h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Field */}
-              <div>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 focus:border-red-600 focus:outline-none transition-colors"
-                  placeholder="Enter your full name"
-                />
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-gray-700 mb-2 text-sm tracking-wide">
+                    FIRST NAME* 
+                  </label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-gray-700 mb-2 text-sm tracking-wide">
+                    LAST NAME* 
+                  </label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors"
+                  />
+                </div>
               </div>
 
-              {/* Email Field */}
               <div>
+                <label className="block text-gray-700 mb-2 text-sm tracking-wide">
+                  WORK EMAIL* 
+                </label>
                 <input
                   type="email"
-                  name="email"
-                  required
-                  value={formData.email}
+                  name="workEmail"
+                  value={formData.workEmail}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 focus:border-red-600 focus:outline-none transition-colors"
-                  placeholder="your.email@company.com"
+                  required
+                  className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors"
                 />
               </div>
 
-              {/* Subject Field */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-gray-700 mb-2 text-sm tracking-wide">
+                    COMPANY* 
+                  </label>
+                  <input
+                    type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-gray-700 mb-2 text-sm tracking-wide">
+                    JOB TITLE* 
+                  </label>
+                  <input
+                    type="text"
+                    name="jobTitle"
+                    value={formData.jobTitle}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors"
+                  />
+                </div>
+              </div>
+
               <div>
+                <label className="block text-gray-700 mb-2 text-sm tracking-wide">
+                  PHONE NUMBER* 
+                </label>
                 <input
-                  type="text"
-                  name="subject"
-                  required
-                  value={formData.subject}
+                  type="tel"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 focus:border-red-600 focus:outline-none transition-colors"
-                  placeholder="How can we help you?"
+                  required
+                  className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors"
                 />
               </div>
 
-              {/* Message Field */}
               <div>
+                <label className="block text-gray-700 mb-2 text-sm tracking-wide">
+                  COUNTRY* 
+                </label>
+                <select
+                  name="country"
+                  value={formData.country}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724%27 height=%2724%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%23000000%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpath d=%27m6 9 6 6 6-6%27/%3e%3c/svg%3e')] bg-[length:1.25rem] bg-[center_right_0.5rem] bg-no-repeat"
+                >
+                  <option value="">Select...</option>
+                  <option value="us">United States</option>
+                  <option value="uk">United Kingdom</option>
+                  <option value="ca">Canada</option>
+                  <option value="au">Australia</option>
+                  <option value="de">Germany</option>
+                  <option value="fr">France</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-gray-700 mb-2 text-sm tracking-wide">
+                  MESSAGE
+                </label>
                 <textarea
                   name="message"
-                  required
                   value={formData.message}
                   onChange={handleChange}
-                  rows={6}
-                  className="w-full px-4 py-3 border-2 border-gray-300 focus:border-red-600 focus:outline-none transition-colors resize-vertical"
-                  placeholder="Describe your thermal optimization needs or technical challenges..."
+                  rows={4}
+                  className="w-full px-4 py-2.5 border border-gray-300 bg-white text-black font-mono focus:outline-none focus:border-[#ef4444] transition-colors resize-none"
                 />
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className={`px-6 py-3 border-2 transition-all font-mono text-xs tracking-wider ${
-                  isSubmitting 
-                    ? 'bg-gray-200 border-gray-300 text-gray-500 cursor-not-allowed'
-                    : 'bg-black text-white border-black hover:bg-gray-900'
-                }`}
+                className="w-full bg-[#ef4444] text-white py-3 px-6 hover:bg-[#dc2626] transition-colors font-mono tracking-wide"
               >
-                {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
+                SUBMIT REQUEST
               </button>
 
-              {/* Status Messages */}
-              {submitStatus === 'success' && (
-                <div className="p-4 bg-green-50 border border-green-600 text-green-600">
-                  <span className="font-mono text-xs">Message sent successfully! We'll respond within 24 hours.</span>
-                </div>
-              )}
-              {submitStatus === 'error' && (
-                <div className="p-4 bg-red-50 border border-red-600 text-red-600">
-                  <span className="font-mono text-xs">Failed to send message. Please try again.</span>
-                </div>
-              )}
+              <p className="text-gray-500 text-sm font-mono">
+                By submitting this form, you agree to our{' '}
+                <a href="#" className="text-black underline hover:text-[#ef4444] transition-colors">
+                  Privacy Policy
+                </a>
+              </p>
             </form>
           </div>
         </div>
+
+        <div className="mt-12 pt-8 border-t border-gray-300">
+          <div className="flex flex-wrap gap-8 text-gray-600 font-mono text-sm">
+            <div>
+              <span className="text-gray-400">Looking for support?</span>{' '}
+              <a href="#" className="text-black hover:text-[#ef4444] transition-colors underline">
+                Visit our help center
+              </a>
+            </div>
+            <div>
+              <span className="text-gray-400">Academic inquiry?</span>{' '}
+              <a href="#" className="text-black hover:text-[#ef4444] transition-colors underline">
+                Special pricing available
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
