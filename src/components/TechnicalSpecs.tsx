@@ -19,32 +19,32 @@ export function TechnicalSpecs() {
         <div className="grid grid-cols-2 gap-12 mb-16">
           <div className="border-2 border-gray-300 bg-white p-8">
             <h3 className="mb-6 pb-4 border-b border-gray-200" style={{ fontSize: '1.5rem', fontWeight: 700 }}>
-              Model Parameters
+              Outcomes
             </h3>
             <div className="space-y-6">
               <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Architecture Type</span>
-                <span className="font-mono text-black">12-Layer Transformer</span>
+                <span className="font-mono text-sm text-gray-500">Energy / utilities reduction</span>
+                <span className="font-mono text-red-600">5–15% typical</span>
               </div>
               <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Total Parameters</span>
-                <span className="font-mono text-black">847,233,280</span>
+                <span className="font-mono text-sm text-gray-500">Throughput increase</span>
+                <span className="font-mono text-black">2–8% within constraints</span>
               </div>
               <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Training Dataset Size</span>
-                <span className="font-mono text-black">2.4B samples</span>
+                <span className="font-mono text-sm text-gray-500">Yield / quality lift</span>
+                <span className="font-mono text-black">1–3% absolute</span>
               </div>
               <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Convergence Rate</span>
-                <span className="font-mono text-red-600">98.4%</span>
+                <span className="font-mono text-sm text-gray-500">Off-spec excursions</span>
+                <span className="font-mono text-red-600">30–60% fewer</span>
               </div>
               <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Inference Time</span>
-                <span className="font-mono text-black">12ms</span>
+                <span className="font-mono text-sm text-gray-500">Recommendation cadence</span>
+                <span className="font-mono text-black">every 10–30 s</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="font-mono text-sm text-gray-500">GPU Acceleration</span>
-                <span className="font-mono text-black">NVIDIA A100 / H100</span>
+                <span className="font-mono text-sm text-gray-500">Decision latency</span>
+                <span className="font-mono text-black">&lt; 1 s compute</span>
               </div>
             </div>
           </div>
