@@ -1,13 +1,13 @@
 import React from 'react';
-import { CarbonCaptureSchematic } from './CarbonCaptureSchematic';
+import carbonCaptureImg from '../assets/images/schematics/carbon-capture-schematic.png';
 
 export function ProcessFlowSection() {
   return (
     <section className="relative min-h-screen py-20 px-6 bg-white">
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="mb-12">
-          <div className="inline-block border border-black px-4 py-2 bg-white mb-4">
-            <span className="font-mono text-xs tracking-widest">PROCESS SCHEMATIC</span>
+          <div className="inline-block border border-red-600 px-4 py-2 bg-red-600/5 mb-4">
+            <span className="font-mono text-xs tracking-widest text-red-600">PROCESS SCHEMATIC</span>
           </div>
           <h2 className="text-black mb-4" style={{ fontSize: '3.5rem', fontWeight: 400 }}>
             Industrial Heat Is Too Costly
@@ -20,7 +20,13 @@ export function ProcessFlowSection() {
         </div>
 
         <div className="mb-12">
-          <CarbonCaptureSchematic />
+          <div className="flex justify-center">
+            <img 
+              src={carbonCaptureImg}
+              alt="Carbon Capture Process Schematic"
+              className="max-w-full h-auto border border-gray-300"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-3 gap-8">

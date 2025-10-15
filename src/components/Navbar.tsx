@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,11 +16,22 @@ export function Navbar() {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (!element) return;
-    const NAV_HEIGHT = 72; // approx navbar height
-    const y = element.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
-    window.scrollTo({ top: y, behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (!element) return;
+        const NAV_HEIGHT = 72; // approx navbar height
+        const y = element.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (!element) return;
+      const NAV_HEIGHT = 72; // approx navbar height
+      const y = element.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -31,14 +45,14 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection('hero')}
+            <Link
+              to="/"
               className="border-2 border-black px-4 py-2 bg-white hover:bg-gray-50 transition-colors"
             >
               <span className="tracking-widest text-sm" style={{ fontWeight: 700 }}>
                 Entropica
               </span>
-            </button>
+            </Link>
 
             <div className="hidden md:flex items-center gap-1">
               <button
@@ -54,18 +68,18 @@ export function Navbar() {
                 ENTROPICA SOLUTIONS
               </button>
               <button
-                onClick={() => scrollToSection('data')}
+                onClick={() => scrollToSection('team')}
                 className="px-4 py-2 text-xs tracking-wider hover:text-red-600 transition-colors"
               >
-                DATA VISUALIZATION
+                OUR TEAM
               </button>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="px-6 py-2 bg-black text-white border-2 border-black hover:bg-gray-900 transition-colors text-xs tracking-wider">
+            <Link to="/contact" className="px-6 py-2 bg-black text-white border-2 border-black hover:bg-gray-900 transition-colors text-xs tracking-wider">
               Contact Us
-            </button>
+            </Link>
           </div>
         </div>
       </div>
