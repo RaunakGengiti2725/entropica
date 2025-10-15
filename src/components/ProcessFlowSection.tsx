@@ -1,3 +1,4 @@
+import React from 'react';
 import { CarbonCaptureSchematic } from './CarbonCaptureSchematic';
 
 export function ProcessFlowSection() {
@@ -9,11 +10,12 @@ export function ProcessFlowSection() {
             <span className="font-mono text-xs tracking-widest">PROCESS SCHEMATIC</span>
           </div>
           <h2 className="text-black mb-4" style={{ fontSize: '3.5rem', fontWeight: 400 }}>
-            Carbon Capture Flow Diagram
+            Industrial Heat Is Too Costly
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl">
-            Chemical absorption process utilizing rich MEA (monoethanolamine) with integrated heat recovery.<br />
-            <span className="text-red-600 font-mono">Red pathways indicate thermal energy transfer zones.</span>
+            Across industries, heat is the single largest energy expense.<br />
+            Even a 1% efficiency gain in thermal systems can translate to millions in annual savings and substantial emission reductions.<br />
+            <span className="text-red-600">Our Focus Example: Carbon Capture</span>
           </p>
         </div>
 
@@ -28,29 +30,21 @@ export function ProcessFlowSection() {
                 01
               </div>
               <div className="flex-1">
-                <h3 className="mb-2" style={{ fontSize: '1.3rem', fontWeight: 700 }}>Absorption Stage</h3>
+                <h3 className="mb-2" style={{ fontSize: '1.3rem', fontWeight: 700 }}>Reboiler Cost</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Flue gas contacts lean amine solution in absorption tower. CO₂ chemically bonds with MEA, producing rich amine solution.
+                High heat demand for solvent regeneration. Conventional MEA systems burn 3–4+ GJ of steam per tonne of CO₂ just to break the CO₂–amine bond and boil water in the stripper.
                 </p>
               </div>
             </div>
             <div className="border-t-2 border-gray-200 pt-4 mt-4">
               <div className="grid grid-cols-2 gap-4 font-mono text-xs">
                 <div>
-                  <div className="text-gray-500 mb-1">TEMPERATURE</div>
-                  <div className="text-black">40-60°C</div>
+                  <div className="text-gray-500 mb-1">HEAT COST</div>
+                  <div className="text-red-600">70%</div>
                 </div>
                 <div>
-                  <div className="text-gray-500 mb-1">PRESSURE</div>
-                  <div className="text-black">1.1-1.3 bar</div>
-                </div>
-                <div>
-                  <div className="text-gray-500 mb-1">MEA CONC.</div>
-                  <div className="text-black">30 wt%</div>
-                </div>
-                <div>
-                  <div className="text-gray-500 mb-1">CO₂ REMOVAL</div>
-                  <div className="text-red-600">90%+</div>
+                  <div className="text-gray-500 mb-1">OTHER COSTS</div>
+                  <div className="text-black">30%</div>
                 </div>
               </div>
             </div>
@@ -62,30 +56,27 @@ export function ProcessFlowSection() {
                 02
               </div>
               <div className="flex-1">
-                <h3 className="mb-2" style={{ fontSize: '1.3rem', fontWeight: 700 }}>Heat Exchange</h3>
+                <h3 className="mb-2" style={{ fontSize: '1.3rem', fontWeight: 700 }}>Optimization Problem</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  <span className="text-red-600 font-mono">Critical thermal optimization zone.</span> Rich amine preheated by hot lean amine, reducing reboiler energy requirements by 40%.
+                Flue-gas CO₂, temperature, humidity, and load fluctuate hourly; operators juggle dozens of setpoints and often<span className="text-red-600 font-mono"> run systems conservatively, wasting energy</span> to protect capture rate.
                 </p>
               </div>
             </div>
             <div className="border-t-2 border-red-200 pt-4 mt-4">
               <div className="grid grid-cols-2 gap-4 font-mono text-xs">
                 <div>
-                  <div className="text-gray-500 mb-1">INLET TEMP</div>
-                  <div className="text-black">40°C</div>
+                  <div className="text-gray-500 mb-1">SETPOINT DRIFT</div>
+                  <div className="text-red-600">2–10%</div>
                 </div>
                 <div>
-                  <div className="text-gray-500 mb-1">OUTLET TEMP</div>
-                  <div className="text-red-600">95°C</div>
+                  <div className="text-gray-500 mb-1">ENERGY OVERUSE</div>
+                  <div className="text-red-600">5–20%</div>
                 </div>
                 <div>
-                  <div className="text-gray-500 mb-1">ΔENERGY</div>
-                  <div className="text-red-600">-18.4 GJ/h</div>
+                  <div className="text-gray-500 mb-1">CAPTURE VARIANCE</div>
+                  <div className="text-red-600">2–6%</div>
                 </div>
-                <div>
-                  <div className="text-gray-500 mb-1">EFFICIENCY</div>
-                  <div className="text-red-600">94.2%</div>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -96,30 +87,27 @@ export function ProcessFlowSection() {
                 03
               </div>
               <div className="flex-1">
-                <h3 className="mb-2" style={{ fontSize: '1.3rem', fontWeight: 700 }}>Desorption & Reboiler</h3>
+                <h3 className="mb-2" style={{ fontSize: '1.3rem', fontWeight: 700 }}>Our Solution</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  <span className="text-red-600 font-mono">High-temperature regeneration.</span> Steam reboiler provides heat to break CO₂-amine bonds, regenerating lean amine for reuse.
+                  <span className="text-red-600 font-mono">Physics Informed Neural Networks.</span> We use plant data to minimize heat use and optimize your entire process—not just heat optimization.
                 </p>
               </div>
             </div>
             <div className="border-t-2 border-red-200 pt-4 mt-4">
               <div className="grid grid-cols-2 gap-4 font-mono text-xs">
                 <div>
-                  <div className="text-gray-500 mb-1">TEMPERATURE</div>
-                  <div className="text-red-600">120°C</div>
+                  <div className="text-gray-500 mb-1">PLANT CALIBRATED</div>
+                  
                 </div>
                 <div>
-                  <div className="text-gray-500 mb-1">PRESSURE</div>
-                  <div className="text-black">1.8-2.0 bar</div>
+                  <div className="text-gray-500 mb-1">TAILORED SOLUTIONS</div>
+                  
                 </div>
                 <div>
-                  <div className="text-gray-500 mb-1">HEAT DUTY</div>
-                  <div className="text-red-600">3.7 GJ/tCO₂</div>
+                  <div className="text-gray-500 mb-1">BEYOND HEAT</div>
+                  
                 </div>
-                <div>
-                  <div className="text-gray-500 mb-1">CO₂ PURITY</div>
-                  <div className="text-black">99.9%</div>
-                </div>
+                
               </div>
             </div>
           </div>

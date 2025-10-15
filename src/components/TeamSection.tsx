@@ -16,12 +16,14 @@ const team: TeamMember[] = [
     linkedinUrl: 'https://www.linkedin.com/in/david-kim-79990b23b/',
     email: 'poket7878@gmail.com',
     phone: '858 371 8884',
+    bio: 'UC Berkeley — Chemical Engineering and EECS. Focused on thermodynamic systems and scalable control software.'
   },
   {
     name: 'Nathan Liu',
     linkedinUrl: 'https://www.linkedin.com/in/nathan-sr-liu/',
     email: 'liu.nathan05@gmail.com',
     phone: '518 334 5674',
+    bio: 'UC Berkeley — Chemical Engineering and Computer Science. Works on PINNs, optimization, and plant data integration.'
   },
   {
     name: 'Shreyas Thumathy',

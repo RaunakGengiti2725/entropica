@@ -1,3 +1,4 @@
+import React from 'react';
 export function TechnicalSpecs() {
   return (
     <section className="relative min-h-screen bg-white text-black py-20 px-6">
@@ -8,10 +9,10 @@ export function TechnicalSpecs() {
             <span className="font-mono text-xs tracking-widest text-red-600">SYSTEM SPECIFICATIONS</span>
           </div>
           <h2 className="mb-4 text-black" style={{ fontSize: '3.5rem', fontWeight: 400 }}>
-            Neural Network Architecture
+            Entropica Solutions
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl">
-            Deep learning model trained on 2.4B thermodynamic samples for real-time heat flux optimization
+          Physics-Informed Neural Networks (PINNs) + your plant data to minimize heat, energy, and cost across any thermal or process system.
           </p>
         </div>
 

@@ -22,7 +22,7 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden" style={{ height: '100vh' }}>
-      <div ref={overlayRef} className="absolute inset-0">
+      <div ref={overlayRef} className="absolute inset-0 z-0">
         <SplineViewer url="https://prod.spline.design/R3lhopNgkyA9g3o1/scene.splinecode" style={{ width: '100%', height: '100%', border: 'none' }} />
       </div>
     </section>
