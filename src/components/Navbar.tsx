@@ -50,7 +50,7 @@ export function Navbar() {
               className="border-2 border-black px-4 py-2 bg-white hover:bg-gray-50 transition-colors"
             >
               <span className="tracking-widest text-sm" style={{ fontWeight: 700 }}>
-                Entropica
+                EntroPINN
               </span>
             </Link>
 
@@ -65,7 +65,7 @@ export function Navbar() {
                 onClick={() => scrollToSection('specs')}
                 className="px-4 py-2 text-xs tracking-wider hover:text-red-600 transition-colors"
               >
-                ENTROPICA SOLUTIONS
+                ENTROPINN SOLUTIONS
               </button>
               <button
                 onClick={() => scrollToSection('team')}

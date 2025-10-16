@@ -9,118 +9,105 @@ export function TechnicalSpecs() {
             <span className="font-mono text-xs tracking-widest text-red-600">SYSTEM SPECIFICATIONS</span>
           </div>
           <h2 className="mb-4 text-black" style={{ fontSize: '3.5rem', fontWeight: 400 }}>
-            Entropica Solutions
+            EntroPINN Solutions
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl">
           Physics-Informed Neural Networks (PINNs) + your plant data to minimize heat, energy, and cost across any thermal or process system.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-12 mb-16">
-          <div className="border-2 border-gray-300 bg-white p-8">
-            <h3 className="mb-6 pb-4 border-b border-gray-200" style={{ fontSize: '1.5rem', fontWeight: 700 }}>
-              Outcomes
-            </h3>
-            <div className="space-y-6">
-              <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Energy / utilities reduction</span>
-                <span className="font-mono text-red-600">5–15% typical</span>
-              </div>
-              <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Throughput increase</span>
-                <span className="font-mono text-black">2–8% within constraints</span>
-              </div>
-              <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Yield / quality lift</span>
-                <span className="font-mono text-black">1–3% absolute</span>
-              </div>
-              <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Off-spec excursions</span>
-                <span className="font-mono text-red-600">30–60% fewer</span>
-              </div>
-              <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Recommendation cadence</span>
-                <span className="font-mono text-black">every 10–30 s</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="font-mono text-sm text-gray-500">Decision latency</span>
-                <span className="font-mono text-black">&lt; 1 s compute</span>
-              </div>
-            </div>
-          </div>
+        <div className="mb-20">
+          <div className="bg-gradient-to-br from-white via-gray-50 to-white rounded-3xl shadow-2xl overflow-hidden">
+            <div className="px-8 py-12 md:px-12 md:py-16">
+              {/* Problem vs Solution Comparison */}
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+                {/* Traditional Problems */}
+                <div className="space-y-8">
+                  <div className="mb-10">
+                    <h4 className="text-black mb-4" style={{ fontSize: '1.75rem', fontWeight: 600 }}>
+                      Current Industry Limitations
+                    </h4>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div className="group bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-md hover:shadow-2xl hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-1">
+                      <div className="mb-4">
+                        <h5 className="text-xl font-extrabold text-gray-900 mb-3">Slow Simulators</h5>
+                        <p className="text-gray-700 text-base leading-relaxed">
+                          Traditional process simulators are computationally intensive and too slow for real-time optimization. 
+                          Delayed adjustments cannot respond to changing plant conditions or market signals.
+                        </p>
+                      </div>
+                    </div>
 
-          <div className="border-2 border-gray-300 bg-white p-8">
-            <h3 className="mb-6 pb-4 border-b border-gray-200" style={{ fontSize: '1.5rem', fontWeight: 700 }}>
-              Thermodynamic Constraints
-            </h3>
-            <div className="space-y-6">
-              <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Temperature Range</span>
-                <span className="font-mono text-black">-273°C to 2000°C</span>
+                    <div className="group bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-md hover:shadow-2xl hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-1">
+                      <div className="mb-4">
+                        <h5 className="text-xl font-extrabold text-gray-900 mb-3">Inefficient Controls</h5>
+                        <p className="text-gray-700 text-base leading-relaxed">
+                          Rule-based control systems operate on predefined parameters with limited adaptability, 
+                          missing complex optimization opportunities and leading to significant energy waste.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="group bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-md hover:shadow-2xl hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-1">
+                      <div className="mb-4">
+                        <h5 className="text-xl font-extrabold text-gray-900 mb-3">Limited Scalability</h5>
+                        <p className="text-gray-700 text-base leading-relaxed">
+                          Pilot projects struggle to translate successes to commercial scale due to increased complexity, 
+                          capital costs, and operational variability not addressed in smaller implementations.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* EntroPINN Advantages */}
+                <div className="space-y-8">
+                  <div className="mb-10">
+                    <h4 className="text-black mb-4" style={{ fontSize: '1.75rem', fontWeight: 600 }}>
+                      EntroPINN's Competitive Edge
+                    </h4>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div className="group bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:border-green-400 transition-all duration-300 transform hover:-translate-y-1">
+                      <div className="mb-4">
+                        <h5 className="text-xl font-extrabold text-green-900 mb-3">Physics-Informed ML</h5>
+                        <p className="text-gray-800 text-base leading-relaxed font-medium">
+                          Adaptive ML optimization integrating fundamental thermodynamic principles for enhanced accuracy 
+                          and robustness in predictions and real-time control strategies.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="group bg-gradient-to-br from-teal-50 to-cyan-50 border-2 border-teal-300 rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:border-teal-400 transition-all duration-300 transform hover:-translate-y-1">
+                      <div className="mb-4">
+                        <h5 className="text-xl font-extrabold text-teal-900 mb-3">Real-Time Optimization</h5>
+                        <p className="text-gray-800 text-base leading-relaxed font-medium">
+                          Proactive energy and heat optimization layer delivering recommendations every 10-30 seconds 
+                          with &lt;1s compute latency for immediate response to changing conditions.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="group bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-300 rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:border-purple-400 transition-all duration-300 transform hover:-translate-y-1">
+                      <div className="mb-4">
+                        <h5 className="text-xl font-extrabold text-purple-900 mb-3">Seamless Integration</h5>
+                        <p className="text-gray-800 text-base leading-relaxed font-medium">
+                          No hardware modifications required. Purpose-built for CCS heat optimization, 
+                          trained on real plant + DoE data to deliver measurable efficiency gains immediately.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Pressure Tolerance</span>
-                <span className="font-mono text-black">0.001 - 500 MPa</span>
-              </div>
-              <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Heat Flux Resolution</span>
-                <span className="font-mono text-black">0.01 W/m²</span>
-              </div>
-              <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">Thermal Conductivity</span>
-                <span className="font-mono text-red-600">0.05 - 500 W/m·K</span>
-              </div>
-              <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                <span className="font-mono text-sm text-gray-500">CO₂ Adsorption Capacity</span>
-                <span className="font-mono text-red-600">15.2 mmol/g</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="font-mono text-sm text-gray-500">Surface Area (MOF-5)</span>
-                <span className="font-mono text-black">3,847 m²/g</span>
-              </div>
+
             </div>
           </div>
         </div>
 
-        <div className="border-2 border-gray-300 bg-white p-8">
-          <h3 className="mb-6" style={{ fontSize: '1.5rem', fontWeight: 700 }}>
-            Computational Requirements
-          </h3>
-          <div className="grid grid-cols-4 gap-8">
-            <div>
-              <div className="font-mono text-xs text-gray-500 mb-3 tracking-wider">PROCESSING</div>
-              <div className="mb-2 text-2xl text-black" style={{ fontWeight: 700 }}>64+</div>
-              <div className="font-mono text-xs text-gray-600">CPU Cores</div>
-              <div className="mt-3 pt-3 border-t border-gray-200">
-                <div className="font-mono text-xs text-gray-500">AMD EPYC / Intel Xeon</div>
-              </div>
-            </div>
-            <div>
-              <div className="font-mono text-xs text-gray-500 mb-3 tracking-wider">MEMORY</div>
-              <div className="mb-2 text-2xl text-black" style={{ fontWeight: 700 }}>256</div>
-              <div className="font-mono text-xs text-gray-600">GB RAM</div>
-              <div className="mt-3 pt-3 border-t border-gray-200">
-                <div className="font-mono text-xs text-gray-500">ECC DDR4/DDR5</div>
-              </div>
-            </div>
-            <div>
-              <div className="font-mono text-xs text-gray-500 mb-3 tracking-wider">STORAGE</div>
-              <div className="mb-2 text-2xl text-black" style={{ fontWeight: 700 }}>10</div>
-              <div className="font-mono text-xs text-gray-600">TB NVMe</div>
-              <div className="mt-3 pt-3 border-t border-gray-200">
-                <div className="font-mono text-xs text-gray-500">PCIe Gen4/Gen5</div>
-              </div>
-            </div>
-            <div>
-              <div className="font-mono text-xs text-gray-500 mb-3 tracking-wider">ACCELERATION</div>
-              <div className="mb-2 text-2xl text-red-600" style={{ fontWeight: 700 }}>A100</div>
-              <div className="font-mono text-xs text-gray-600">GPU Required</div>
-              <div className="mt-3 pt-3 border-t border-gray-200">
-                <div className="font-mono text-xs text-gray-500">80GB VRAM minimum</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
