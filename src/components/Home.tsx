@@ -29,14 +29,14 @@ export function Home() {
           transition: 'opacity 500ms ease',
         }}
       >
-        <div style={{
-          border: '2px solid #000',
-          padding: '12px 18px',
-          fontFamily: 'Readex Pro, ui-sans-serif, system-ui, sans-serif',
-          letterSpacing: '0.2em',
-        }}>
-          EntroPINN
-        </div>
+        <img 
+          src="/src/entropinn.PNG" 
+          alt="EntroPINN" 
+          style={{
+            height: '84px',
+            width: 'auto',
+          }}
+        />
       </div>
 
       <div id="hero">

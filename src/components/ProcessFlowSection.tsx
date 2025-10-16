@@ -7,13 +7,13 @@ export function ProcessFlowSection() {
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="mb-12">
           <div className="inline-block border border-red-600 px-4 py-2 bg-red-600/5 mb-4">
-            <span className="font-mono text-xs tracking-widest text-red-600">PROCESS SCHEMATIC</span>
+            <span className="font-mono text-xs tracking-widest text-red-600">THE PROBLEM</span>
           </div>
           <h2 className="text-black mb-4" style={{ fontSize: '3.5rem', fontWeight: 400 }}>
-            Industrial Heat Is Too Costly
+          Just 1% Heat Efficiency Gain Can Save Millions
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl">
-            Across industries, heat is the single largest energy expense.<br />
+            Across industries, heat is the single largest energy expense. But right now, industrial heat is too costly and inefficient. We've identified areas where major efficiency gains can be made.
             Even a 1% efficiency gain in thermal systems can translate to millions in annual savings and substantial emission reductions.<br />
             <span className="text-red-600">Our Focus Example: Carbon Capture</span>
           </p>

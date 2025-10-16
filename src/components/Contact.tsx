@@ -17,7 +17,6 @@ import {
   SelectItem,
   SelectValue,
 } from './ui/select';
-import { Checkbox } from './ui/checkbox';
 import { Button } from './ui/button';
 
 type ContactFormValues = {
@@ -30,7 +29,6 @@ type ContactFormValues = {
   projectStage?: string;
   timeframe?: string;
   message: string;
-  consent: boolean;
 };
 
 export default function Contact() {
@@ -47,14 +45,39 @@ export default function Contact() {
       projectStage: undefined,
       timeframe: undefined,
       message: '',
-      consent: false,
     },
     mode: 'onBlur',
   });
 
-  const onSubmit = (values: ContactFormValues) => {
-    // Placeholder for integration (email, CRM, or API endpoint)
-    // For now, we simulate success and show a confirmation state
+  const onSubmit = async (values: ContactFormValues) => {
+    const endpoint = (import.meta as any).env?.VITE_CONTACT_ENDPOINT as string | undefined;
+
+    if (endpoint) {
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            ...values,
+            // Duplicate for Formspree Reply-To handling
+            email: values.workEmail,
+          }),
+        });
+
+        if (!res.ok) {
+          // eslint-disable-next-line no-console
+          console.error('Contact submission failed', await res.text());
+        }
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.error('Contact submission error', err);
+      }
+    }
+
+    // Always show confirmation for now
     // eslint-disable-next-line no-console
     console.log('Contact submission', values);
     setSubmitted(true);
@@ -64,10 +87,8 @@ export default function Contact() {
     <div className="bg-white">
       <div className="max-w-5xl mx-auto px-6 py-24">
         <div className="mb-10">
-          <span className="inline-block px-4 py-2 border border-[#ef4444] text-[#ef4444] text-sm tracking-wider">
-            CONTACT SALES
-          </span>
-          <h1 className="mt-6 text-3xl md:text-4xl font-bold">Tell us about your project</h1>
+          
+          <h1 className="mt-6 text-3xl md:text-4xl font-bold">Contact our team</h1>
           <p className="mt-3 text-gray-600 font-mono text-sm leading-relaxed">
             We partner with industrial teams to design and optimize carbon capture systems.
             Share a few details and our team will follow up within 2 business days.
@@ -145,7 +166,7 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Company <span className="text-red-600" aria-hidden="true">*</span></FormLabel>
                         <FormControl>
-                          <Input placeholder="Acme Industrial" {...field} />
+                          <Input placeholder="Example: Enlight Energy" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -247,7 +268,7 @@ export default function Contact() {
                   rules={{ required: true }}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>How can we help? <span className="text-red-600" aria-hidden="true">*</span></FormLabel>
+                      <FormLabel>Message<span className="text-red-600" aria-hidden="true">*</span></FormLabel>
                       <FormControl>
                         <Textarea rows={6} placeholder="Describe your use case, KPIs, constraints, or timeline" {...field} />
                       </FormControl>
@@ -256,30 +277,7 @@ export default function Contact() {
                   )}
                 />
 
-                <FormField
-                  control={form.control}
-                  name="consent"
-                  rules={{ required: true }}
-                  render={({ field }) => (
-                    <FormItem>
-                      <div className="flex items-start gap-3">
-                        <FormControl>
-                          <Checkbox
-                            checked={!!field.value}
-                            onCheckedChange={(checked) => field.onChange(Boolean(checked))}
-                          />
-                        </FormControl>
-                        <div>
-                          <FormLabel className="m-0">I agree to be contacted <span className="text-red-600" aria-hidden="true">*</span></FormLabel>
-                          <p className="text-gray-500 font-mono text-xs mt-1">
-                            We will only use your information to respond to your inquiry.
-                          </p>
-                        </div>
-                      </div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                
 
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-xs text-gray-500">Response within 2 business days</span>

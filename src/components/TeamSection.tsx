@@ -8,6 +8,7 @@ type TeamMember = {
   name: string;
   title?: string;
   bio?: string;
+  additionalInfo?: string;
   linkedinUrl?: string;
   email?: string;
   phone?: string;
@@ -20,16 +21,18 @@ const team: TeamMember[] = [
     name: 'David Kim',
     linkedinUrl: 'https://www.linkedin.com/in/david-kim-79990b23b/',
     email: 'poket7878@gmail.com',
-    phone: '858 371 8884',
-    bio: 'UC Berkeley — Chemical Engineering and EECS. Focused on thermodynamic systems and scalable control software.',
+    phone: '858-371-8884',
+    bio: 'UC Berkeley — Chemical Engineering and EECS',
+    additionalInfo: 'David is currently doing MOF ML Research as a part of the BIDMaP x Omar Yaghi Group. He is also working as a Fullstack Developer and Machine Learning Researcher at the Materials Project. David is working on Battery ML at Helms Group and Energy Storage Research Alliance under the U.S. Department of Energy at Argonne National Laboratory. He has also worked as a Software Engineer at Logitech as well as a Summer Analyst at Hunniwell Lake Ventures.',
     imageUrl: davidKimImg
   },
   {
     name: 'Nathan Liu',
     linkedinUrl: 'https://www.linkedin.com/in/nathan-sr-liu/',
     email: 'liu.nathan05@gmail.com',
-    phone: '518 334 5674',
-    bio: 'UC Berkeley — Chemical Engineering and Computer Science. Works on PINNs, optimization, and plant data integration.',
+    phone: '518-334-5674',
+    bio: 'UC Berkeley — Chemical Engineering and Computer Science',
+    additionalInfo: 'Nathan is doing ML‑driven catalysis research in Peidong Yang’s Group (Kavli, CoC) on CO2 electroreduction. He worked on Bayesian Optimization in the Mesbah Lab (AIML), interned in neuroengineering at Paradromics (BCI + ML), and co‑founded CAL FPV Racing. In industry, he helped deploy 12,300+ ML‑enabled emissions monitors at ActBlue, reducing NOx ~12%. United Nations Millennium Fellow & Campus Directo.',
     imageUrl: nathanLiuImg
   },
 ];
@@ -80,6 +83,13 @@ export function TeamSection() {
                   />
                 ) : null}
               </div>
+
+              {/* Additional information below the image */}
+              {member.additionalInfo && (
+                <p className="text-sm text-gray-600 leading-relaxed mb-6">
+                  {member.additionalInfo}
+                </p>
+              )}
 
               {(member.linkedinUrl || member.email || member.phone) && (
                 <div className="mt-6 pt-6 border-t border-gray-200 space-y-2 text-sm">
