@@ -35,7 +35,7 @@ export function Home() {
           fontFamily: 'Readex Pro, ui-sans-serif, system-ui, sans-serif',
           letterSpacing: '0.2em',
         }}>
-          Entropica
+          EntroPINN
         </div>
       </div>
 
