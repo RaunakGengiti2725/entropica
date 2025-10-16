@@ -5,7 +5,7 @@ export function Footer() {
         <div className="grid grid-cols-4 gap-12 mb-12">
           <div>
             <h3 className="mb-6 border-b-2 border-red-600 pb-2 inline-block" style={{ fontSize: '1.5rem', fontWeight: 700 }}>
-              ENTROPICA
+              ENTROPINN
             </h3>
             <p className="text-sm text-gray-600 font-mono leading-relaxed">
               Advanced thermodynamic modeling and machine learning for industrial carbon capture systems.
@@ -55,7 +55,7 @@ export function Footer() {
         
         <div className="pt-8 border-t-2 border-gray-200 flex items-center justify-between">
           <p className="text-sm text-gray-500 font-mono">
-            © 2025 Entropica Systems Inc. All computational models and algorithms proprietary.
+            © 2025 EntroPINN Systems Inc. All computational models and algorithms proprietary.
           </p>
           <div className="flex items-center gap-8 font-mono text-xs text-gray-500">
             <span>BUILD: 2025.10.14</span>
